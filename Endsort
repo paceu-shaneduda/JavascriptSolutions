@@ -1,3 +1,4 @@
+//automates the creation of an array of random values
 console.log('Random array:')
 
 var numberArray = [];
