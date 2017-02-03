@@ -1,0 +1,42 @@
+console.log('Random array:')
+
+var numberArray = [];
+
+for(var x = 0; x < 10; x++){
+  numberArray[x] = Math.floor((Math.random() * 100) + 1);
+}
+
+for(x = 0; x < numberArray.length; x++){
+  console.log(numberArray[x]);
+}
+
+console.log('Now sorting...');
+
+var high = 0;
+var highestPlace;
+var temp;
+var unsortedPart = 0; //I don't like the names for these variables. They track the interations of the loops and are used 
+var sortedPart = 1;   //to keep the appropriate place in the array
+
+for(var i = 0; i<numberArray.length; i++){
+
+for(x = 0; x < numberArray.length-unsortedPart; x++){ //finda the highest value
+  if(numberArray[x] > high){
+    high = numberArray[x];
+    highestPlace = x;
+  }
+}
+
+temp = numberArray[highestPlace];//Puts the highest value at the and of the array
+numberArray[highestPlace] = numberArray[numberArray.length-sortedPart];
+numberArray[numberArray.length-sortedPart] = temp;
+
+unsortedPart++;
+sortedPart++; //these variables are used to shrink the unsorted partition of the array
+high = 0;
+
+}
+
+for(x = 0; x < numberArray.length; x++){
+  console.log(numberArray[x]);
+}
